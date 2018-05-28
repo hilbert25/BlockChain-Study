@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BitCoin-NG.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+</style>
+
+</head>
+<body>
+<p>#4. BitCoin-NG
+  BitCoin-NG是一个序列化交易的区块链协议，像比币，但是延时更低带宽更高且不需要牺牲其他的属性。</p>
+<p>  协议把时间分段。每个时间段都有一个领导者负责序列化状态机交易。为了促进状态传播，领导者生产区块。协议引进两种区块：用来领导者竞选的主区块和包含账本实体的微区块。每个区块有一个头，包含了前区块的引用，一个前区块头的哈希值。
+  这部分讲协议的具体操作，第五部分讲激励系统。
+##4.1 主区块和领导者竞选
+  主区块用来选一个领导者。像比特币区块链，一个主区块包含了对前一个区块的引用（可能是主区块或者微区块，通常后者），时间戳，矿工交易报酬，目标值，任意比特位的nonce。正如比特币，为了让一个主区块合法，头哈希必须必目标值小。和比特币不同的是，主区块链的公钥将会在随后的微区块中使用。
+  像比特币那样，有一个矿工产生主区块，迭代随机数直到谜题解出。因此区块产生间隔指数分布。为了保证等概率，难度有基于时间戳的主区块头来改变目标值。
+  一旦分叉，节点选择最大工作的，聚合所有主块，用随机约束打破。
+##4.2 微区块
+  一旦一个节点产生的主块成了领导者。作为一个领导者，节点被允许产生微区块，其概率比预先定义的最大值小。最大概率是确定的，而且比主块见平均差要大得多。微块大小由预先定义的最大值限制。特别的如果一个微块的时间戳是将来的时间或者与其前区块时间戳差小于最小值，则区块不合法。这就阻止了一个领导者（恶意的，贪婪地，损坏的）淹没系统。
+  一个微块包含了一个账本实体和头。头包含了对前驱区块的引用，时间戳，账本实体哈希，头的签名。签名用与最新主块的公钥匹配的私钥。为了让一个微区块合法，其所有实体根据状态机说明必须合法，且签名合法。
+  微块不影响链重，不包含pow。这对保持激励很重要。
+##4.3 确认时间
+  当一个矿工产生了一个主块，他也许还没收听到前领导者生产的全部微块。如果经常产生微块，这可能是领导者切换的普遍结果。结果是一个短的微块分叉。分叉可以被任一节点观察到，节点在微块成为新主块前收到将要修建的微块。一旦主块传播到该节点，它就会被解析。这样，一个能看见微块的用户应该等待传播时间，
+##4.4 报酬
+  为了鼓励挖矿，领导者会根据协议与他的工作获得报酬。报酬分成两部分。第一，每个主块授予它的生成器一个数量集合。第二每个账本实体有一个费用。这些费用被领导者切分，用来在微块存放实体。特别的，当前领导者从中赚取40%，后续领导者赚取60%。
+  实际情况下，报酬通过使每个主块包含一个单一矿工的交易来挖出新币并且把币存入当前领导者和前领导者来实现激励。
+##4.5 阻止微区块分叉
+  尽管微区块不需要挖矿，他们可以被领导者快速低成本地生成，允许分裂系统的中枢，复制不同状态的状态机到不同的机器。这允许双重支付攻击。不同的节点相信相同的币会被用于支付不同的交易。
+  为了激励这种行为，我们用一个专门的账本实体使得不正当的领导者的获利无效。过去的工作中已经在不同的环境中使用这样的实体。在NG中，实体叫做有害交易。包含了第一个区块的头，在被修剪的分支作为POF。有害交易放在区块链中在作弊领导者主块的成熟窗口，在收入被恶意领导者花费以前。除了发给leader的无效交易产生分叉外，一个有害交易获取当前leader报酬的部分。
+  只有当有害交易可以被每个欺骗者安防，即时欺骗者创建了很多分叉。欺骗者的收入不依赖丢失的有害者。</p>
+<p>#5 安全分析
+##5.1 激励</p>
+
+</body>
+</html>
